@@ -5,7 +5,6 @@ import seaborn as sns
 class Serie_Decomposer():
     def __init__(self, data:pd.DataFrame):
         self.data = data
-    
     def sazo(self):
         print('===='*50)
         print()
@@ -18,7 +17,6 @@ class Serie_Decomposer():
             axes.set_title(f'Sazonalidade - {plot}')
             fig.tight_layout()
             fig.show()
-    
     def move_avg(self, window):
         print('===='*50)
         print()

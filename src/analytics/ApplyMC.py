@@ -5,7 +5,6 @@ class AppMC():
         self.y_pred = y_pred
         self.residual = residual
         #self.cenary = cenary
-    
     def sim_mc(self):
         mu_resid = self.residual.mean()
         std_resid = self.residual.std()
@@ -18,14 +17,11 @@ class AppMC():
             print('==='*50)
             print('Notas:')
             print('[1] os residuos se aproximam da normalidade, pelo menos olhando para os desvios e médias dos mesmos.')
-        
             print('==='*50)
-
         eps = np.random.normal(mu_resid, std_resid, len(self.y_pred))
         y_mc = self.y_pred + eps
         self.y_hat = y_mc.mean(axis=0)
         self.y_ac_mu = np.cumsum(y_mc)/np.arange(1, len(y_mc)+1)
-        
         print('==='*50)
         print('resultados:')
         print(f'[1] Média estimada: {self.y_hat} ')

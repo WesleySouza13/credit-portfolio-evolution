@@ -13,7 +13,6 @@ class Model_Metrics():
             'MAPE(%)': mean_absolute_percentage_error(self.y_true, self.y_pred)
         }
         return pd.DataFrame([out_metrics])
-    
     def plot_shap(self, model, X):
         explainer = shap.TreeExplainer(model=model)
         explanation = explainer(X)
